@@ -8,7 +8,7 @@ use App\TransformingPatterns;
 
 class TransformingNumbersTests extends TestCase
 {
-    public function testFooBarQixWithMultipleAndOccuranceOfThree(): void
+    public function testFooBarQixWithMultipleAndOccurrenceOfThree(): void
     {
         $fooBarQix = new TransformingNumbersClass(new TransformingPatterns());
         $this->assertEquals('Foo,Foo', $fooBarQix->transformNumber(3));
@@ -16,25 +16,25 @@ class TransformingNumbersTests extends TestCase
         $this->assertEquals('Foo,Foo', $fooBarQix->transformNumber(331));
     }
 
-    public function testFooBarQixWithMultipleAndOccuranceOfFive(): void
+    public function testFooBarQixWithMultipleAndOccurrenceOfFive(): void
     {
         $fooBarQix = new TransformingNumbersClass(new TransformingPatterns());
         $this->assertEquals('Bar,Bar', $fooBarQix->transformNumber(5));
         $this->assertEquals('Bar', $fooBarQix->transformNumber(20));
-        $this->assertEquals('Bar', $fooBarQix->transformNumber(53));
+        $this->assertEquals('Bar,Foo', $fooBarQix->transformNumber(53));
         $this->assertEquals('Bar,Bar', $fooBarQix->transformNumber(554));
     }
 
-    public function testFooBarQixMultipleAndOccuranceOfSeven(): void
+    public function testFooBarQixMultipleAndOccurrenceOfSeven(): void
     {
         $fooBarQix = new TransformingNumbersClass(new TransformingPatterns());
-        $this->assertEquals('Qix', $fooBarQix->transformNumber(7));
+        $this->assertEquals('Qix,Qix', $fooBarQix->transformNumber(7));
         $this->assertEquals('Qix', $fooBarQix->transformNumber(14));
         $this->assertEquals('Qix', $fooBarQix->transformNumber(71));
         $this->assertEquals('Qix,Qix', $fooBarQix->transformNumber(776));
     }
 
-    public function testFooBarQixMultipleAndOccuranceOfThreeAndFive(): void
+    public function testFooBarQixMultipleAndOccurrenceOfThreeAndFive(): void
     {
         $fooBarQix = new TransformingNumbersClass(new TransformingPatterns());
         $this->assertEquals('Foo,Bar,Bar', $fooBarQix->transformNumber(15));
@@ -43,7 +43,7 @@ class TransformingNumbersTests extends TestCase
         $this->assertEquals('Foo,Bar,Foo,Bar', $fooBarQix->transformNumber(352351));
     }
 
-    public function testFooBarQixMultipleAndOccuranceOfThreeAndSeven(): void
+    public function testFooBarQixMultipleAndOccurrenceOfThreeAndSeven(): void
     {
         $fooBarQix = new TransformingNumbersClass(new TransformingPatterns());
         $this->assertEquals('Foo,Qix', $fooBarQix->transformNumber(21));
@@ -55,7 +55,7 @@ class TransformingNumbersTests extends TestCase
     public function testFooBarQixMultipleOfFiveAndSeven(): void
     {
         $fooBarQix = new TransformingNumbersClass(new TransformingPatterns());
-        $this->assertEquals('Bar,Qix', $fooBarQix->transformNumber(70));
+        $this->assertEquals('Bar,Qix,Qix', $fooBarQix->transformNumber(70));
         $this->assertEquals('Bar,Qix', $fooBarQix->transformNumber(140));
         $this->assertEquals('Bar,Qix', $fooBarQix->transformNumber(578));
         $this->assertEquals('Bar,Qix,Bar,Qix', $fooBarQix->transformNumber(57578));
@@ -67,10 +67,10 @@ class TransformingNumbersTests extends TestCase
         $this->assertEquals('Foo,Bar,Qix', $fooBarQix->transformNumber(210));
         $this->assertEquals('Foo,Bar,Qix', $fooBarQix->transformNumber(420));
         $this->assertEquals('Qix,Bar,Foo', $fooBarQix->transformNumber(7531));
-        $this->assertEquals('Bar,Foo,Qix,Bar,Foo,Qix', $fooBarQix->transformNumber(3355771));
+        $this->assertEquals('Foo,Foo,Bar,Bar,Qix,Qix', $fooBarQix->transformNumber(3355771));
     }
 
-    public function testFooBarQixNoMultipleAndOccuranceByThreeOrFiveOrSeven(): void
+    public function testFooBarQixNoMultipleAndOccurrenceByThreeOrFiveOrSeven(): void
     {
         $fooBarQix = new TransformingNumbersClass(new TransformingPatterns());
         $this->assertEquals('1', $fooBarQix->transformNumber(1));
