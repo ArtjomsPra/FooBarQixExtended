@@ -2,7 +2,7 @@
     "name": "artjo/foo-bar",
     "autoload": {
         "psr-4": {
-            "FooBar\\": "app/"
+            "App\\": "app/"
         }
     },
     "authors": [
