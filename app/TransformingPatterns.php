@@ -12,6 +12,7 @@ class TransformingPatterns
         $this->patterns = [
             3 => 'Foo',
             5 => 'Bar',
+            7 => 'Qix'
         ];
         $this->separator = ',';
     }
