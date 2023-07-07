@@ -2,13 +2,13 @@
 
 namespace App;
 
-use App\FooBarQixPatterns;
+use App\patterns\TransformingPatternsInterface;
 
 class TransformingNumbersClass
 {
-    private FooBarQixPatterns $pattern;
+    private TransformingPatternsInterface $pattern;
 
-    public function __construct(FooBarQixPatterns $pattern)
+    public function __construct(TransformingPatternsInterface $pattern)
     {
         $this->pattern = $pattern;
     }

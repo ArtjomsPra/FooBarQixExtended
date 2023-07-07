@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace App;
+namespace App\patterns;
 
-class FooBarQixPatterns
+class FooBarQixPatterns implements TransformingPatternsInterface
 {
     private array $patterns;
     private string $separator;
@@ -24,26 +24,6 @@ class FooBarQixPatterns
         ];
         $this->separator = ',';
     }
-
-    public function transform(int $number): string
-    {
-        $result = '';
-
-        foreach ($this->patterns as $divisor => $string) {
-            if ($number % $divisor === 0) {
-                $result .= $string . $this->separator;
-            }
-        }
-
-        if (empty($result)) {
-            $result = (string) $number;
-        } else {
-            $result = rtrim($result, $this->separator);
-        }
-
-        return $result;
-    }
-
     public function getPatterns(): array
     {
         return $this->patterns;

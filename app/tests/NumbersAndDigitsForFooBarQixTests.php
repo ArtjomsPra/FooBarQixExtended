@@ -2,9 +2,9 @@
 
 namespace App\tests;
 
-use PHPUnit\Framework\TestCase;
+use App\patterns\FooBarQixPatterns;
 use App\TransformingNumbersClass;
-use App\FooBarQixPatterns;
+use PHPUnit\Framework\TestCase;
 
 class NumbersAndDigitsForFooBarQixTests extends TestCase
 {
