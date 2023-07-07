@@ -2,7 +2,7 @@
 
 namespace App;
 
-class TransformingPatterns
+class FooBarQixPatterns
 {
     private array $patterns;
     private string $separator;
