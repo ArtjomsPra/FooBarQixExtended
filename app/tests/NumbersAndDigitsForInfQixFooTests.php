@@ -2,7 +2,6 @@
 
 namespace App\tests;
 
-use App\patterns\FooBarQixPatterns;
 use App\patterns\InfQixFooPatterns;
 use App\TransformingNumbersClass;
 use PHPUnit\Framework\TestCase;
@@ -12,7 +11,6 @@ class NumbersAndDigitsForInfQixFooTests extends TestCase
     public function testInfQixFooWithMultipleAndOccurrenceOfEight(): void
     {
         $InfQixFoo = new TransformingNumbersClass(new InfQixFooPatterns());
-        $this->assertEquals('Inf;Inf', $InfQixFoo->transformNumber(8));
         $this->assertEquals('Inf', $InfQixFoo->transformNumber(16));
         $this->assertEquals('Inf;Inf', $InfQixFoo->transformNumber(881));
     }
@@ -22,8 +20,6 @@ class NumbersAndDigitsForInfQixFooTests extends TestCase
         $InfQixFoo = new TransformingNumbersClass(new InfQixFooPatterns());
         $this->assertEquals('Qix;Qix', $InfQixFoo->transformNumber(7));
         $this->assertEquals('Qix', $InfQixFoo->transformNumber(14));
-        $this->assertEquals('Qix', $InfQixFoo->transformNumber(71));
-        $this->assertEquals('Qix;Qix', $InfQixFoo->transformNumber(772));
     }
 
     public function testInfQixFooWithMultipleAndOccurrenceOfThree(): void
@@ -72,5 +68,13 @@ class NumbersAndDigitsForInfQixFooTests extends TestCase
         $InfQixFoo = new TransformingNumbersClass(new InfQixFooPatterns());
         $this->assertEquals('1', $InfQixFoo->transformNumber(1));
         $this->assertEquals('4', $InfQixFoo->transformNumber(4));
+    }
+
+    public function testInfQixFooWithSumOfAllDigitIsMultipleOfEight(): void
+    {
+        $InfQixFoo = new TransformingNumbersClass(new InfQixFooPatterns());
+        $this->assertEquals('Inf;InfInf', $InfQixFoo->transformNumber(8));
+        $this->assertEquals('QixInf', $InfQixFoo->transformNumber(71));
+        $this->assertEquals('Qix;QixInf', $InfQixFoo->transformNumber(772));
     }
 }

@@ -21,7 +21,6 @@ class NumbersAndDigitsForFooBarQixTests extends TestCase
         $fooBarQix = new TransformingNumbersClass(new FooBarQixPatterns());
         $this->assertEquals('Bar,Bar', $fooBarQix->transformNumber(5));
         $this->assertEquals('Bar', $fooBarQix->transformNumber(20));
-        $this->assertEquals('Bar,Foo', $fooBarQix->transformNumber(53));
         $this->assertEquals('Bar,Bar', $fooBarQix->transformNumber(554));
     }
 
@@ -30,7 +29,6 @@ class NumbersAndDigitsForFooBarQixTests extends TestCase
         $fooBarQix = new TransformingNumbersClass(new FooBarQixPatterns());
         $this->assertEquals('Qix,Qix', $fooBarQix->transformNumber(7));
         $this->assertEquals('Qix', $fooBarQix->transformNumber(14));
-        $this->assertEquals('Qix', $fooBarQix->transformNumber(71));
         $this->assertEquals('Qix,Qix', $fooBarQix->transformNumber(776));
     }
 
@@ -58,7 +56,6 @@ class NumbersAndDigitsForFooBarQixTests extends TestCase
         $this->assertEquals('Bar,Qix,Qix', $fooBarQix->transformNumber(70));
         $this->assertEquals('Bar,Qix', $fooBarQix->transformNumber(140));
         $this->assertEquals('Bar,Qix', $fooBarQix->transformNumber(578));
-        $this->assertEquals('Bar,Qix,Bar,Qix', $fooBarQix->transformNumber(57578));
     }
 
     public function testFooBarQixMultipleOfThreeAndFiveAndSeven(): void
@@ -66,7 +63,6 @@ class NumbersAndDigitsForFooBarQixTests extends TestCase
         $fooBarQix = new TransformingNumbersClass(new FooBarQixPatterns());
         $this->assertEquals('Foo,Bar,Qix', $fooBarQix->transformNumber(210));
         $this->assertEquals('Foo,Bar,Qix', $fooBarQix->transformNumber(420));
-        $this->assertEquals('Qix,Bar,Foo', $fooBarQix->transformNumber(7531));
         $this->assertEquals('Foo,Foo,Bar,Bar,Qix,Qix', $fooBarQix->transformNumber(3355771));
     }
 
@@ -75,5 +71,14 @@ class NumbersAndDigitsForFooBarQixTests extends TestCase
         $fooBarQix = new TransformingNumbersClass(new FooBarQixPatterns());
         $this->assertEquals('1', $fooBarQix->transformNumber(1));
         $this->assertEquals('4', $fooBarQix->transformNumber(4));
+    }
+
+    public function testFooBarQixWithSumOfAllDigitIsMultipleOfEight(): void
+    {
+        $fooBarQix = new TransformingNumbersClass(new FooBarQixPatterns());
+        $this->assertEquals('Bar,FooInf', $fooBarQix->transformNumber(53));
+        $this->assertEquals('QixInf', $fooBarQix->transformNumber(71));
+        $this->assertEquals('Bar,Qix,Bar,QixInf', $fooBarQix->transformNumber(57578));
+        $this->assertEquals('Qix,Bar,FooInf', $fooBarQix->transformNumber(7531));
     }
 }
