@@ -4,6 +4,7 @@ namespace App;
 
 use App\patterns\TransformingPatternsInterface;
 use App\patterns\InfQixFooPatterns;
+use App\exceptions\InvalidArgumentException;
 class TransformingNumbersClass
 {
     private TransformingPatternsInterface $pattern;
@@ -15,6 +16,10 @@ class TransformingNumbersClass
 
     public function transformNumber(int $number): string
     {
+        if ($number <= 0) {
+            throw new InvalidArgumentException($number);
+        }
+
         $multiplesResult = $this->transformMultiples($number);
         $occurrencesResult = $this->transformOccurrences($number);
 
