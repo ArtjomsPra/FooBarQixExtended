@@ -1,0 +1,14 @@
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.6/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         colors="true">
+    <testsuites>
+        <testsuite name="MyTestSuite">
+            <directory>tests</directory>
+            <exclude>vendor</exclude>
+            <file>tests\ExceptionsTests.php</file>
+            <file>tests\NumbersAndDigitsForFooBarQixTests.php</file>
+            <file>tests\NumbersAndDigitsForInfQixFooTests.php</file>
+        </testsuite>
+    </testsuites>
+</phpunit>

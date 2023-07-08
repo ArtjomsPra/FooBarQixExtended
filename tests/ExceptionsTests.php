@@ -49,4 +49,29 @@ class ExceptionsTests extends TestCase
         $this->expectExceptionMessage('Invalid input. Input was -42. Only positive integers are allowed.');
         $fooBarQix->transformNumber(-42);
     }
+
+    public function testInvalidArgumentWithZero(): void
+    {
+        $fooBarQix = new TransformingNumbersClass(new FooBarQixPatterns());
+
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Invalid input. Input was 0. Only positive integers are allowed.');
+        $fooBarQix->transformNumber(0);
+    }
+
+    public function testInvalidArgumentWithNegativeIntegerWithInvalidArgumentException(): void
+    {
+        $fooBarQix = new TransformingNumbersClass(new FooBarQixPatterns());
+
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Invalid input. Input was -42. Only positive integers are allowed.');
+
+        try {
+            $fooBarQix->transformNumber(-42);
+        } catch (InvalidArgumentException $exception) {
+            $this->assertEquals('Invalid input. Input was -42. Only positive integers are allowed.',
+                $exception->getMessage());
+            throw $exception;
+        }
+    }
 }
