@@ -3,7 +3,7 @@
 namespace App;
 
 use App\patterns\TransformingPatternsInterface;
-
+use App\patterns\InfQixFooPatterns;
 class TransformingNumbersClass
 {
     private TransformingPatternsInterface $pattern;
@@ -18,11 +18,23 @@ class TransformingNumbersClass
         $multiplesResult = $this->transformMultiples($number);
         $occurrencesResult = $this->transformOccurrences($number);
 
+        $result = '';
+
         if (!empty($multiplesResult) && !empty($occurrencesResult)) {
-            return $multiplesResult . $this->pattern->getSeparator() . $occurrencesResult;
+            $result = $multiplesResult . $this->pattern->getSeparator() . $occurrencesResult;
+        } elseif (!empty($multiplesResult)) {
+            $result = $multiplesResult;
+        } elseif (!empty($occurrencesResult)) {
+            $result = $occurrencesResult;
+        } else {
+            $result = (string)$number;
         }
 
-        return !empty($multiplesResult) ? $multiplesResult : ($occurrencesResult ?: (string)$number);
+        if ($this->pattern instanceof InfQixFooPatterns && $this->pattern->isSumMultipleOfEight($number)) {
+            $result .= 'Inf';
+        }
+
+        return $result;
     }
 
     private function transformMultiples(int $number): string

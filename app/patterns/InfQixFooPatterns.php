@@ -9,7 +9,6 @@ class InfQixFooPatterns implements TransformingPatternsInterface {
 
     public function __construct()
     {
-
         $this->patterns = [
             8 => 'Inf',
             7 => 'Qix',
@@ -37,5 +36,11 @@ class InfQixFooPatterns implements TransformingPatternsInterface {
     public function getSeparator(): string
     {
         return $this->separator;
+    }
+
+    public function isSumMultipleOfEight(int $number): bool
+    {
+        $sum = array_sum(str_split((string)$number));
+        return $sum % 8 === 0;
     }
 }
