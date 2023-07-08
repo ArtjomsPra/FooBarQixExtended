@@ -1,11 +1,15 @@
 <?php declare(strict_types=1);
 
-namespace App\tests;
+namespace tests;
 
+use App\exceptions\InvalidArgumentException;
+use App\patterns\FooBarQixPatterns;
 use App\TransformingNumbersClass;
 use PHPUnit\Framework\TestCase;
-use App\patterns\FooBarQixPatterns;
-use App\exceptions\InvalidArgumentException;
+
+/**
+ * @covers \App\Exceptions\InvalidArgumentException
+ */
 
 class ExceptionsTests extends TestCase
 {

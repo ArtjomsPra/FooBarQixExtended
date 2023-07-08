@@ -1,10 +1,15 @@
 <?php declare(strict_types=1);
 
-namespace App\tests;
+namespace tests;
 
 use App\patterns\InfQixFooPatterns;
 use App\TransformingNumbersClass;
 use PHPUnit\Framework\TestCase;
+
+/**
+ * @covers \App\Patterns\InfQixFooPatterns
+ * @covers \App\TransformingNumbersClass
+ */
 
 class NumbersAndDigitsForInfQixFooTests extends TestCase
 {
